@@ -1,12 +1,6 @@
-const htmlmin = require("html-minifier");
-const pluginTailwindCSS = require("eleventy-plugin-tailwindcss");
+const { minify } = require('html-minifier-terser');
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.addPlugin(pluginTailwindCSS, {
-		dest: "docs",
-		keepFolderStructure: false,
-		minify: true
-	});
 	eleventyConfig.addPassthroughCopy("src/images");
 	eleventyConfig.addPassthroughCopy("src/*.png");
 	eleventyConfig.addPassthroughCopy("src/*.txt");
@@ -17,10 +11,10 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/documents/*");
 	eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
 		if (outputPath && outputPath.endsWith(".html")) {
-			return htmlmin.minify(content, {
+			return minify(content, {
 				useShortDoctype: true,
 				removeComments: true,
-				collapseWhitespace: true
+				collapseWhitespace: true,
 			});
 		}
 		return content;

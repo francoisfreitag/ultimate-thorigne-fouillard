@@ -8,15 +8,14 @@
 		"tailwind": "tailwindcss -i ./src/style.css -o ./docs/style.css --watch"
 	},
 	"license": "MIT",
-	"dependencies": {
-		"eleventy-plugin-tailwindcss": "^0.3.0"
-	},
 	"devDependencies": {
-		"@11ty/eleventy": "^1.0.1",
-		"autoprefixer": "^10.4.0",
-		"cross-env": "^7.0.3",
-		"html-minifier": "^4.0.0",
-		"prettier": "^2.4.1",
-		"tailwindcss": "^3.1.4"
+		"@11ty/eleventy": "*",
+		"autoprefixer": "*",
+		"cross-env": "*",
+		"prettier": "*",
+		"tailwindcss": "*"
+	},
+	"dependencies": {
+		"html-minifier-terser": "^7.2.0"
 	}
 }
